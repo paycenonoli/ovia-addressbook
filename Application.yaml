@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: project-k8s-deployment
+  name: ovia-k8s-deployment
 spec:
   replicas: 3 
   selector:
     matchLabels:
-      app: project-k8s
+      app: ovia-k8s
   template:
     metadata:
       labels:
-        app: project-k8s
+        app: ovia-k8s
     spec:
       containers:
-      - name: project-k8s
-        image: tampoohoonm/project-k8s:latest
+      - name: ovia-k8s
+        image: ojpascale/ovia-k8s-project:latest
         ports:
         - containerPort: 8080  
 
@@ -22,11 +22,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: project-k8s-service
+  name: ovia-k8s-service
 spec:
   type: LoadBalancer
   selector:
-    app: project-k8s
+    app: ovia-k8s
   ports:
   - protocol: TCP
     port: 80

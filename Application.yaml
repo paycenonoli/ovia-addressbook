@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ovia-k8s
-        image: ojpascale/ovia-k8s-project:latest
+        image: ojpascale/project-k8s:latest
         ports:
         - containerPort: 8080  
 

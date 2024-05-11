@@ -1,11 +1,11 @@
-# Use an official Tomcat runtime as a base image
-FROM tomcat:9-jre11
+# Use an official Nginx runtime as a base image
+FROM nginx
 
-# Copy the WAR file into the webapps directory
-COPY target/addressbook-2.0.war /usr/local/tomcat/webapps/
+# Copy the WAR file into the html directory
+COPY target/addressbook-2.0.war /usr/share/nginx/html
 
-# Expose the default Tomcat port (8080)
-EXPOSE 8080
+# Expose the default Nginx port (80)
+EXPOSE 80
 
-# Command to run Tomcat
-CMD ["catalina.sh", "run"]
+# Command to run Nginx
+CMD ["nginx", "-g", "daemon off;"]
